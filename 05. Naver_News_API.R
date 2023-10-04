@@ -16,11 +16,11 @@ library(RmecabKo)
 
 #뉴스 API 설정(Client_ID와 Client_Secret은 개인별로 추가)
 searchUrl <- "https://openapi.naver.com/v1/search/news.xml"
-Client_ID <- "input your Client_ID"
-Client_Secret <- "input your Client_Secret"
+Client_ID <- "P4K4fjjPhZYu_DPS2RaP"
+Client_Secret <- "lQHJ7l_ROr"
 
 #뉴스 URL 작성(UTF-8로 암호화, API 요청할 URL 정의, 검색결과는 20로 요청)
-query <- URLencode(iconv("경영통계", "euc-kr", "UTF-8"))
+query <- URLencode(iconv("데브시스터즈", to= "UTF-8"))
 url <- paste(searchUrl, "?query=", query, "&display=20", sep="")
 
 #문서 다운로드_URI 다운로드하기
@@ -37,6 +37,7 @@ xmlFile <- xmlParse(doc)
 df <- xmlToDataFrame(getNodeSet(xmlFile, "//item"))
 #데이터 프레임 구조
 str(df)
+
 
 #뉴스 내용
 description <- df[,4]
